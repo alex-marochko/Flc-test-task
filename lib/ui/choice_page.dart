@@ -6,12 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 class ChoicePage extends StatelessWidget {
   const ChoicePage({super.key});
 
-  final curveAsset1 = 'assets/curve_1_1.svg';
-  final curveAsset2 = 'assets/curve_1_2.svg';
-  final curveAsset3a = 'assets/curve_1_3a.svg';
-  final curveAsset3b = 'assets/curve_1_3b.svg';
-  final buttonAsset = 'assets/right_button_1.svg';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,7 +123,7 @@ class OptionCard extends StatelessWidget {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 18, 0, 54), // 17, 49, 0, 54),
             child: Image.asset(
-              'assets/arrow_right_1.png',
+              'assets/arrow_right_dark.png',
               width: 30,
             ),
           )

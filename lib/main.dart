@@ -1,4 +1,4 @@
-import 'package:flc_test_task/ui/choice_page.dart';
+import 'package:flc_test_task/ui/birth_date_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,15 +14,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final textTheme = Theme.of(context).textTheme;
-    var baseTheme = ThemeData();
     return MaterialApp(
       title: 'Flora',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF53538A)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const ChoicePage(),
+      home: BirthDatePage(), //const ChoicePage(),
     );
   }
 }
