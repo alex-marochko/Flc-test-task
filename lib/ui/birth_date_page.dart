@@ -127,22 +127,29 @@ class _BirthDatePageState extends State<BirthDatePage> {
                           },
                           children: _yearsLabels,
                         ),
-                        IgnorePointer(
-                          child: Container(
-                            height: 104,
-                            decoration: const BoxDecoration(
-                                gradient: LinearGradient(
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
-                              colors: [Color(0x60FFFFFF), Color(0xFFFFFFFF)],
+                        Align(
+                            alignment: Alignment.topCenter,
+                            child: IgnorePointer(
+                              child: Container(
+                                height: 104,
+                                width: 100,
+                                decoration: const BoxDecoration(
+                                    gradient: LinearGradient(
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                  colors: [
+                                    Color(0x60FFFFFF),
+                                    Color(0xFFFFFFFF)
+                                  ],
+                                )),
+                              ),
                             )),
-                          ),
-                        ),
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: IgnorePointer(
                             child: Container(
                               height: 129,
+                              width: 100,
                               decoration: const BoxDecoration(
                                   gradient: LinearGradient(
                                 begin: Alignment.topCenter,
