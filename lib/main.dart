@@ -1,7 +1,12 @@
+import 'package:flc_test_task/app/main_cubit.dart';
 import 'package:flc_test_task/ui/birth_date_page.dart';
+import 'package:flc_test_task/ui/choice_page.dart';
+import 'package:flc_test_task/ui/loading_page.dart';
+import 'package:flc_test_task/ui/result_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -14,13 +19,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flora',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-        useMaterial3: true,
+    return BlocProvider(
+      create: (context) => MainCubit(),
+      child: MaterialApp(
+        title: 'Flora',
+        theme: ThemeData(
+          useMaterial3: true,
+        ),
+        // home: ResultPage(), //BirthDatePage(), //const ChoicePage(),
+        routes: {
+          LoadingPage.routeName: (context) => LoadingPage(),
+          ChoicePage.routeName: (context) => ChoicePage(),
+          BirthDatePage.routeName: (context) => BirthDatePage(),
+          ResultPage.routeName: (context) => ResultPage()
+        },
+        initialRoute: LoadingPage.routeName,
       ),
-      home: BirthDatePage(), //const ChoicePage(),
     );
   }
 }
