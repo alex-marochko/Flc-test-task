@@ -1,16 +1,19 @@
 import 'dart:developer';
 
 import 'package:flc_test_task/app/main_cubit.dart';
+import 'package:flc_test_task/ui/tools/custom_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'navigator.dart';
-
 class BirthDatePage extends StatefulWidget {
   const BirthDatePage({super.key});
 
-  static const routeName = '/birthDate';
+  static Page page() {
+    return const CustomPage<void>(
+      child: BirthDatePage(),
+    );
+  }
 
   @override
   State<BirthDatePage> createState() => _BirthDatePageState();
@@ -84,12 +87,15 @@ class _BirthDatePageState extends State<BirthDatePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<MainCubit, MainState>(
-      listener: navigate,
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-          child: Stack(
+    return WillPopScope(
+      onWillPop: () async {
+        context.read<MainCubit>().selectMode(null);
+        return true;
+      },
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: Stack(
             children: [
               ..._decorations,
               Center(
@@ -109,7 +115,7 @@ class _BirthDatePageState extends State<BirthDatePage> {
                       ),
                     ),
                     const SizedBox(height: 64),
-                    Container(
+                    SizedBox(
                       height: 300,
                       child: Stack(
                         children: [
@@ -226,7 +232,7 @@ class _BirthDatePageState extends State<BirthDatePage> {
                                 width: 27,
                                 height: 27,
                                 clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                                 child: Stack(children: [
                                   Image.asset('assets/arrow_right_light.png',
                                       width: 27)
